@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DineDelight - Restaurant Recommendations</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background-image: url('https://img.freepik.com/free-photo/crop-plate-with-vegetable-salad_23-2147753679.jpg?semt=ais_user'); /* Background image URL */
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            overflow-x: hidden; /* Prevent horizontal scroll */
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.6);
+            border-bottom: 5px solid #5a5567;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            color: #e39898;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        header p {
+            font-size: 1.2em;
+            color: #a8a2a2;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+            margin: 5px 0 0 0;
+        }
+
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            border-radius: 15px;
+            background: rgba(0, 0, 0, 0.7); /* Ensure contrast for readability */
+            margin-top: 60px;
+        }
+
+        .recommendation {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end; /* Align dashboard to the bottom */
+            padding-bottom: 20px; /* Space for footer */
+        }
+
+        .tableauPlaceholder {
+            width: 100%;
+            max-width: 1169px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .emoji-section {
+            margin-top: 20px; /* Adjusted gap between main content and emojis */
+            font-size: 3em; /* Increase size of the emojis */
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px; /* Gap between emojis and footer */
+        }
+
+        .emoji {
+            display: inline-block;
+            animation: float 3s ease-in-out infinite;
+            margin: 0 10px;
+        }
+
+        .emoji:nth-child(odd) {
+            animation: float-up 3s ease-in-out infinite;
+        }
+
+        .emoji:nth-child(even) {
+            animation: float-down 3s ease-in-out infinite;
+        }
+
+        @keyframes float-up {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-15px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float-down {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(15px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        footer {
+            padding: 10px;
+            background: rgba(0, 0, 0, 0.6);
+            border-top: 5px solid #5a5567;
+            text-align: center;
+            flex-shrink: 0;
+            width: 100%;
+            position: relative;
+            bottom: 0;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 1em;
+            color: #ff9898;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Dine Delight</h1>
+        <p>Your ultimate guide to the best dining experiences around.</p>
+    </header>
+    
+    <main>
+        <div class="recommendation">
+            <div class='tableauPlaceholder' id='viz1721838370863' style='position: relative'>
+                <noscript>
+                    <a href='#'>
+                        <img alt=' ' src='https://public.tableau.com/static/images/re/restaurants-recommendation/Dashboard1/1_rss.png' style='border: none' />
+                    </a>
+                </noscript>
+                <object class='tableauViz' style='display:none;'>
+                    <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+                    <param name='embed_code_version' value='3' />
+                    <param name='site_root' value='' />
+                    <param name='name' value='restaurants-recommendation/Dashboard1' />
+                    <param name='tabs' value='no' /> <!-- Hide the tabs -->
+                    <param name='toolbar' value='no' /> <!-- Hide the toolbar -->
+                    <param name='static_image' value='https://public.tableau.com/static/images/re/restaurants-recommendation/Dashboard1/1.png' />
+                    <param name='animate_transition' value='yes' />
+                    <param name='display_static_image' value='yes' />
+                    <param name='display_spinner' value='yes' />
+                    <param name='display_overlay' value='yes' />
+                    <param name='display_count' value='yes' />
+                    <param name='language' value='en-US' />
+                </object>
+            </div>
+            <script type='text/javascript'>
+                var divElement = document.getElementById('viz1721838370863');
+                var vizElement = divElement.getElementsByTagName('object')[0];
+                if (divElement.offsetWidth > 800) {
+                    vizElement.style.minWidth = '1169px';
+                    vizElement.style.maxWidth = '100%';
+                    vizElement.style.minHeight = '877px';
+                    vizElement.style.maxHeight = (divElement.offsetWidth * 0.75) + 'px';
+                } else if (divElement.offsetWidth > 500) {
+                    vizElement.style.minWidth = '1169px';
+                    vizElement.style.maxWidth = '100%';
+                    vizElement.style.minHeight = '877px';
+                    vizElement.style.maxHeight = (divElement.offsetWidth * 0.75) + 'px';
+                } else {
+                    vizElement.style.width = '100%';
+                    vizElement.style.minHeight = '900px';
+                    vizElement.style.maxHeight = (divElement.offsetWidth * 1.77) + 'px';
+                }
+                var scriptElement = document.createElement('script');
+                scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+                scriptElement.onload = function() {
+                    var viz = new tableau.Viz(vizElement, "https://public.tableau.com/views/restaurants-recommendation/Dashboard1", {
+                        width: '100%',
+                        height: '100%',
+                        hideTabs: true,
+                        hideToolbar: true
+                    });
+                };
+                vizElement.parentNode.insertBefore(scriptElement, vizElement);
+            </script>
+        </div>
+    </main>
+    
+    <div class="emoji-section">
+        <span class="emoji">🍔</span>
+        <span class="emoji">🍗</span>
+        <span class="emoji">🍕</span>
+        <span class="emoji">🍦</span>
+    </div>
+    
+    <footer>
+        <p>&copy; 2024 DineDelight. All rights reserved.</p>
+    </footer>
+</body>
+</html>

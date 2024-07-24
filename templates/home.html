@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DineDelight - Restaurant Recommendations</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background-image: url('https://img.freepik.com/free-photo/crop-plate-with-vegetable-salad_23-2147753679.jpg?semt=ais_user'); /* Background image URL */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed; /* Ensure the image stays in place */
+            color: #fff;
+            overflow-x: hidden; /* Prevent horizontal scroll */
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.6);
+            border-bottom: 5px solid #5a5567;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            color: #e39898;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        header p {
+            font-size: 1.2em;
+            color: #a8a2a2;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+            margin: 5px 0 0 0;
+        }
+
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            border-radius: 15px;
+            margin-top: 60px;
+            max-width: 100%;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.7); /* Ensure contrast for readability */
+        }
+
+        .greeting {
+            font-size: 1.2em;
+            color: #ff9898;
+            margin-bottom: 0px;
+            padding: 30px;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            max-width: 100%;
+            line-height: 1.4;
+        }
+
+        .recommendation {
+            margin-top: 20px;
+        }
+
+        #recommendation-button {
+            background: linear-gradient(135deg, #5a5567, #744d2b);
+            border: none;
+            border-radius: 30px;
+            color: #fff;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        #recommendation-button:hover {
+            background: linear-gradient(135deg, #5a5567, #744d2b);
+            transform: scale(1.1);
+            box-shadow: 0 7px 20px rgba(0, 0, 0, 0.6);
+        }
+
+        .emoji-section {
+            margin-top: 20px; /* Adjusted gap between main content and emojis */
+            font-size: 3em; /* Increase size of the emojis */
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px; /* Gap between emojis and footer */
+        }
+
+        .emoji {
+            display: inline-block;
+            animation: float 3s ease-in-out infinite;
+            margin: 0 10px;
+        }
+
+        .emoji:nth-child(odd) {
+            animation: float-up 3s ease-in-out infinite;
+        }
+
+        .emoji:nth-child(even) {
+            animation: float-down 3s ease-in-out infinite;
+        }
+
+        @keyframes float-up {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-15px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float-down {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(15px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        footer {
+            padding: 10px;
+            background: rgba(0, 0, 0, 0.6);
+            border-top: 5px solid #5a5567;
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 1em;
+            color: #ff9898;
+        }
+
+        /* Media Queries for Responsive Design */
+
+        /* For tablets and smaller devices (landscape mode) */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+
+            header p {
+                font-size: 1em;
+            }
+
+            .greeting {
+                font-size: 1em;
+                padding: 15px;
+            }
+
+            #recommendation-button {
+                font-size: 1em;
+                padding: 8px 16px;
+            }
+
+            .emoji-section {
+                font-size: 2em;
+                margin-top: 15px;
+                margin-bottom: 15px;
+            }
+        }
+
+        /* For mobile devices (portrait mode) */
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 1.5em;
+            }
+
+            header p {
+                font-size: 0.9em;
+            }
+
+            .greeting {
+                font-size: 0.9em;
+                padding: 10px;
+            }
+
+            #recommendation-button {
+                font-size: 0.9em;
+                padding: 6px 12px;
+            }
+
+            .emoji-section {
+                font-size: 1.5em;
+                margin-top: 10px;
+                margin-bottom: 10px;
+            }
+
+            footer p {
+                font-size: 0.9em;
+            }
+        }
+
+        /* For very small screens */
+        @media (max-width: 320px) {
+            header h1 {
+                font-size: 1.2em;
+            }
+
+            header p {
+                font-size: 0.8em;
+            }
+
+            .greeting {
+                font-size: 0.8em;
+                padding: 5px;
+            }
+
+            #recommendation-button {
+                font-size: 0.8em;
+                padding: 4px 8px;
+            }
+
+            .emoji-section {
+                font-size: 1.2em;
+                margin-top: 5px;
+                margin-bottom: 5px;
+            }
+
+            footer p {
+                font-size: 0.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Dine Delight</h1>
+        <p>Your ultimate guide to the best dining experiences around.</p>
+    </header>
+    
+    <main>
+        <div class="greeting">
+            Discover the finest dining spots in town! 🍽️ Whether you're in the mood for a casual meal or a special celebration, we've got you covered with top-notch recommendations. Enjoy a memorable dining experience every time you dine with us!
+            <div class="recommendation">
+             <a href="/recommend" target="_blank">
+                <button id="recommendation-button">Get a Recommendation</button>
+             </a>
+            </div>
+        </div>
+    </main>
+    
+    <div class="emoji-section">
+        <span class="emoji">🍔</span>
+        <span class="emoji">🍗</span>
+        <span class="emoji">🍕</span>
+        <span class="emoji">🍦</span>
+    </div>
+    
+    <footer>
+        <p>&copy; 2024 DineDelight. All rights reserved.</p>
+    </footer>
+</body>
+</html>
